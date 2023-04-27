@@ -1,0 +1,13 @@
+.mapPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapPage h1 {
+    font-size: 90px;
+    font-weight: bold;
+    margin-top: 120px;
+    margin-bottom: 50px;
+}

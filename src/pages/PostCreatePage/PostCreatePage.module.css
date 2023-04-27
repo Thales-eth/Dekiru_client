@@ -1,0 +1,19 @@
+.postCreationPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.postCreationPage h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 120px;
+}
+
+.fadeOut {
+    opacity: 0;
+}

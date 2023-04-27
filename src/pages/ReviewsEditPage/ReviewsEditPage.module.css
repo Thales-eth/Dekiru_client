@@ -1,0 +1,42 @@
+.ReviewsEditPage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s;
+    opacity: 1;
+}
+
+.ReviewsEditPage h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 120px;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
+.ratingInput {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ratingInput input {
+    margin-top: 20px;
+}
+
+.ratingInput label {
+    font-size: 32px;
+}
+
+.ratingStars {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}

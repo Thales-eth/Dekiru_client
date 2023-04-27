@@ -1,0 +1,29 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    height: 400px;
+}
+
+.footerLink {
+    color: white;
+    display: block;
+    font-weight: bold;
+    font-size: 50px;
+    transition: 0.3s;
+}
+
+.footerLink:hover {
+    transform: scale(1.1);
+}
+
+.footer .logo {
+    cursor: pointer;
+    margin-right: 50px;
+    transition: 0.3s;
+}
+
+.footer .logo:hover {
+    transform: scale(1.2);
+}

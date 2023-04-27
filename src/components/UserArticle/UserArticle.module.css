@@ -1,0 +1,69 @@
+.caseStudy {
+    position: relative;
+    height: 504px;
+    width: 317px;
+    border: 7px solid var(--japan-red);
+    border-radius: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    filter: brightness(70%);
+    margin-right: 50px;
+    transition: 0.3s;
+}
+
+.caseStudy:hover {
+    filter: brightness(100%);
+}
+
+.name {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 160px;
+    color: white;
+    font-weight: bold;
+    background-color: var(--japan-red);
+    border-radius: 300px;
+    font-size: 2em;
+    writing-mode: vertical-rl;
+    text-align: center;
+    position: absolute;
+    right: 18px;
+    top: 172px;
+    transition: 0.3s;
+}
+
+.age {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    color: white;
+    font-weight: bold;
+    background-color: var(--japan-red);
+    border-radius: 100%;
+    font-size: 2em;
+    position: absolute;
+    bottom: 30px;
+    left: 120px;
+    transform: translateY(100%);
+    transition: transform 0.4s, ;
+}
+
+.caseStudy:hover .age {
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.caseStudy:hover .name {
+    opacity: 1;
+    visibility: visible;
+}

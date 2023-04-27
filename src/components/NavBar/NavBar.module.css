@@ -1,0 +1,85 @@
+.flexContainer {
+    display: flex;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    padding-top: 60px;
+}
+
+.navList li {
+    margin-left: 26px;
+    font-size: 24px;
+}
+
+.navList a {
+    transition: 0.3s;
+    position: relative;
+    display: inline-block;
+}
+
+.navList a:hover {
+    color: var(--japan-red);
+}
+
+.navList a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--japan-red);
+    transition: width 0.3s ease;
+}
+
+.navList a:hover::after {
+    width: 100%;
+}
+
+.navList .active {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--japan-red);
+    text-underline-offset: 7px;
+}
+
+.logo {
+    font-size: 64px;
+}
+
+.logo a {
+    font-size: 64px;
+    color: var(--japan-red);
+}
+
+.authButtons {
+    display: flex;
+}
+
+.genericButton {
+    display: block;
+    border-radius: 20px;
+    padding: 12px 23px;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.signupButton {
+    background-color: var(--japan-red);
+    margin-right: 10px;
+}
+
+.loginButton {
+    background-color: black;
+    margin-right: 12px;
+}
+
+.genericButton:hover {
+    transform: scale(1.1);
+}

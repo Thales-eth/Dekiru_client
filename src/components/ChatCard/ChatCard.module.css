@@ -1,0 +1,52 @@
+.ChatCard {
+    display: flex;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.ChatCard:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.ChatCard:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.ChatCard .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 80%;
+}
+
+.ChatCard img {
+    display: block;
+    border-radius: 50%;
+    width: 63px;
+    height: 63px;
+    object-fit: cover;
+}
+
+.ChatCard h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.ChatCard p {
+    font-size: 14px;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 5px 0;
+}
+
+.ChatCard span {
+    font-weight: 600;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

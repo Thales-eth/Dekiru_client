@@ -1,0 +1,32 @@
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 220px;
+}
+
+.welcome h1 {
+    width: 700px;
+    height: 240px;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 120px;
+}
+
+.editBtn {
+    display: block;
+    text-align: center;
+    width: 110px;
+    border-radius: 40px;
+    padding: 22px 43px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+    transition: 0.3s;
+    background: #BC002D;
+}
+
+.editBtn:hover {
+    transform: scale(1.1);
+}

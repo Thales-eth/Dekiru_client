@@ -1,0 +1,112 @@
+.card {
+    border-radius: 50px;
+    height: 460px;
+    width: 1100px;
+    margin-bottom: 90px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.card h2 {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 1.5em;
+}
+
+.card p {
+    width: 350px;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.5em;
+}
+
+.pinkCard:hover {
+    box-shadow: -10px 10px black;
+    transform: scale(1.05);
+}
+
+.pinkCard {
+    background-color: var(--japan-red);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pinkCard .info {
+    margin-top: 42px;
+}
+
+.pinkCard span {
+    line-height: 1.1em;
+    margin-top: 10px;
+    font-size: 120px;
+}
+
+.logo {
+    margin-top: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
+
+.cta {
+    margin-right: 120px;
+    margin-top: 100px;
+}
+
+.ctaBlock {
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-left: 15px;
+}
+
+.ctaImages {
+    display: flex;
+}
+
+.friendButton {
+    margin-top: 60px;
+    margin-left: 20px;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 50px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    font-weight: bold;
+    font-size: 32px;
+    transition: 0.3s;
+}
+
+.friendButton:hover {
+    background-color: black;
+    color: white;
+}
+
+.ctaBlock1 {
+    background-image: url("../assets/japanesegirl.jpg");
+}
+
+.ctaBlock2 {
+    background-image: url("../assets/spanishgirl.jpg");
+}

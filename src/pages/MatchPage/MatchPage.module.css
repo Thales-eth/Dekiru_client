@@ -1,0 +1,91 @@
+.matchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.matchPage h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 200px;
+}
+
+.matchPage button {
+    display: block;
+    margin: 80px auto 150px;
+    background-color: var(--japan-red);
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 30px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.matchPage button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-50vh);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.confettiContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--japan-red);
+    border-radius: 50%;
+    animation-name: confetti-fall;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform: translateY(-100vh);
+}
+
+.noMatchMsg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 200px 0;
+}
+
+.noMatchMsg p {
+    font-size: 3em;
+}
+
+.link {
+    margin-top: 40px;
+    font-size: 2em;
+    color: var(--japan-red);
+    text-decoration: underline;
+    text-decoration-color: var(--japan-red);
+    transition: 0.3s;
+}
+
+.link:hover {
+    transform: scale(1.1);
+}
+
+.matchBlock {
+    margin: 120px 0 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

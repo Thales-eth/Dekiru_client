@@ -1,0 +1,60 @@
+.classCard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #BC002D;
+    border-radius: 30px;
+    margin-right: 55px;
+    padding: 20px;
+    margin-bottom: 45px;
+}
+
+.editIcon {
+    position: absolute;
+    top: 20px;
+    left: 70px;
+}
+
+.editBtn {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.editBtn:hover {
+    transform: scale(1.1);
+}
+
+.classCard p {
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.classCard .info {
+    width: 60%;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+.info .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cardPhoto {
+    border-radius: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.cardPhoto:hover {
+    transform: scale(1.1);
+}
+
+.personInfo span {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 32px;
+}

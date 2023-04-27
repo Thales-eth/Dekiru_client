@@ -1,0 +1,83 @@
+.classCard {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+    max-width: 460px;
+    height: 200px;
+    padding: 10px;
+    margin: 25px;
+    background: #BC002D;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.classCard:hover {
+    box-shadow: -10px 10px black;
+    transform: scale(1.1);
+}
+
+.personDetails img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.info {
+    width: 60%;
+}
+
+.info p {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.interests {
+    display: flex;
+    margin-top: 16px;
+}
+
+.interest {
+    background: #C9C9C9;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.personDetails {
+    margin-left: 27px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.personDetails p {
+    margin-top: 2px;
+}
+
+.editBtn {
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    left: 40px;
+}
+
+.save {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: 0.3s;
+}
+
+.save:hover {
+    transform: scale(1.1);
+}

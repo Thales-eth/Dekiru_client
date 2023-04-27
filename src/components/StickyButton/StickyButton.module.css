@@ -1,0 +1,22 @@
+.createPost {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: var(--japan-red);
+    transition: 0.3s;
+}
+
+.createPost:hover {
+    transform: scale(1.1);
+}

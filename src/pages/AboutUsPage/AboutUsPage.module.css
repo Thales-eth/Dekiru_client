@@ -1,0 +1,100 @@
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutPage h1 {
+    width: 598px;
+    height: 150px;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 150px;
+    margin-top: 120px;
+}
+
+.aboutPage .motto {
+    margin-top: 70px;
+    width: 773px;
+    height: 216px;
+    font-size: 48px;
+    line-height: 72px;
+    text-align: center;
+    color: #000000;
+}
+
+.aboutPage .ctaButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    width: 410px;
+    height: 115px;
+    background: #BC002D;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 48px;
+    border: none;
+    transition: 0.3s;
+}
+
+.aboutPage .ctaButton:hover {
+    transform: scale(1.1);
+}
+
+.aboutPage .me {
+    margin-top: 45px;
+    margin-bottom: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aboutPage span {
+    width: 391px;
+    height: 72px;
+    font-weight: 700;
+    font-size: 48px;
+    margin-top: 20px;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+}
+
+.message p {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin-left: 20px;
+}
+
+.photos {
+    display: flex;
+}
+
+.ramen {
+    position: relative;
+    top: 200px;
+    left: 60px;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    width: 286px;
+    height: 251px;
+    border: 7px solid #000000;
+    border-radius: 200px;
+}
+
+.profilePic {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 289px;
+    height: 460px;
+    border: 7px solid #000000;
+    border-radius: 200px;
+}

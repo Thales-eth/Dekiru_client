@@ -1,0 +1,110 @@
+.profilePage {
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.profilePage .classes {
+    display: flex;
+    margin-top: 50px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-bottom: 25px;
+}
+
+.profilePage .classes::-webkit-scrollbar,
+.profilePage .carrousel::-webkit-scrollbar {
+    width: 2px;
+    background-color: #f0f0f0;
+}
+
+.profilePage .classes::-webkit-scrollbar-thumb,
+.profilePage .carrousel::-webkit-scrollbar-thumb {
+    width: 2px;
+    background-color: var(--japan-red);
+    border-radius: 10px;
+}
+
+.classesSection {
+    margin-left: 220px;
+    margin-top: 146px;
+}
+
+.profilePage .carrousel {
+    display: flex;
+    margin-top: 45px;
+    margin-bottom: 100px;
+    margin-left: 220px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 25px;
+    white-space: nowrap;
+}
+
+.friendsSection,
+.matchesSection {
+    margin-top: 45px;
+}
+
+.friendsSection h3,
+.matchesSection h3 {
+    margin-left: 220px;
+}
+
+.friendCard {
+    object-fit: cover;
+    display: block;
+    height: 504px;
+    width: 317px;
+    border: 7px solid var(--japan-red);
+    border-radius: 200px;
+    cursor: pointer;
+    filter: brightness(70%);
+    margin-right: 50px;
+    transition: 0.3s;
+}
+
+.friendCard:hover {
+    filter: brightness(100%);
+}
+
+.profileBtn {
+    display: block;
+    text-align: center;
+    border-radius: 40px;
+    padding: 30px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #BC002D;
+    border: none;
+    transition: 0.3s;
+}
+
+.buttonPlacer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.deleteButton {
+    cursor: pointer;
+    width: 200px;
+    margin-right: 340px;
+    margin-bottom: 50px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.deleteButton:hover {
+    transform: scale(1.1);
+}
+
+.fadeOut {
+    opacity: 0;
+}

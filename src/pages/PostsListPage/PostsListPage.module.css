@@ -1,0 +1,16 @@
+.postPage {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin: 100px 0;
+}
+
+.fadeOut {
+    opacity: 0;
+}

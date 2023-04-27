@@ -1,0 +1,19 @@
+.classCreationPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.classCreationPage h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 120px;
+}
+
+.fadeOut {
+    opacity: 0;
+}

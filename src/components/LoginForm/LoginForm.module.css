@@ -1,0 +1,54 @@
+.loginForm input {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    border: 2.5px solid black;
+    border-radius: 40px;
+    width: 607px;
+    height: 85px;
+    margin-top: 60px;
+}
+
+.loginForm button {
+    display: block;
+    margin: 40px auto;
+    background-color: var(--japan-red);
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    width: 198px;
+    height: 94px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginForm button:hover {
+    transform: scale(1.1);
+}
+
+.password input {
+    position: relative;
+}
+
+.pwdLogo {
+    cursor: pointer;
+    position: absolute;
+    bottom: 338px;
+    right: 675px;
+}
+
+.signupLink {
+    text-decoration: underline;
+    text-decoration-color: var(--japan-red);
+    text-underline-offset: 3px;
+    color: var(--japan-red);
+    font-size: 20px;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.signupLink:hover {
+    transform: scale(1.1);
+}

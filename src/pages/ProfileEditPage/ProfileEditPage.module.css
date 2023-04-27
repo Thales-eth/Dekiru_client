@@ -1,0 +1,12 @@
+.editPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.editPage h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 120px;
+}
