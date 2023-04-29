@@ -26,6 +26,10 @@ const ClassProfileCard = ({ singleClass, setAllClasses, photoWidth, photoHeight 
         triggerFadeOut(`/classes/edit/${singleClass._id}`)
     }
 
+    function triggerClassNavigation() {
+        triggerFadeOut(`/class/${singleClass._id}`)
+    }
+
     async function leaveClass() {
         const userClasses = await classService.leaveClass(singleClass._id, user._id).then(({ data }) => data)
         setAllClasses(userClasses)
@@ -49,7 +53,7 @@ const ClassProfileCard = ({ singleClass, setAllClasses, photoWidth, photoHeight 
             </div>
 
             <div className={styles.info}>
-                <p className={styles.title}>{singleClass?.title}</p>
+                <Link onClick={triggerClassNavigation}><p className={styles.title}>{singleClass?.title}</p></Link>
                 <p>{singleClass?.text}</p>
             </div>
 

@@ -59,7 +59,6 @@ const ConversationsListPage = () => {
                 socket.emit('createMessage', { conversation_id: currentConversation._id, message });
 
                 socket.on('myCustomEventResponse', (data) => {
-                    console.log("LLEGA O NO???", data)
                     handleConversationChange(currentConversation)
                     setMsg({ sender: user._id, message: "" })
                 });

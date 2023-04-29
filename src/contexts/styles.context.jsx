@@ -11,6 +11,11 @@ const StylesContextWrapper = (props) => {
     const navigate = useNavigate()
 
     function triggerFadeOut(link) {
+        if (link.startsWith("https://checkout.stripe.com")) {
+            window.open(link, "_blank");
+            return
+        }
+
         setFadeOut(true)
         setTimeout(() => {
             handleNavigation()

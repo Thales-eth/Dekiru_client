@@ -20,12 +20,13 @@ const MatchPage = () => {
         if (user._id) {
             loadMatchUser()
         }
-    }, [user])
+    }, [])
 
     async function loadMatchUser() {
         const matchUser = await userService.getMatch(user._id).then(({ data }) => data)
         setCanShow(true)
-        if (matchUser) {
+        if (matchUser && !match) {
+            console.log("ENTROOOO JAJAJA")
             setMatch(matchUser)
         }
         else {

@@ -20,6 +20,9 @@ import MatchPage from '../pages/MatchPage/MatchPage'
 import IsPrivate from './isPrivate'
 import ClassesEditPage from '../pages/ClassesEditPage/ClassesEditPage'
 import UsersMap from '../pages/UsersMap/UsersMap'
+import ClassesPage from '../pages/ClassesPage/ClassesPage'
+import SucessPaymentPage from '../pages/SucessPaymentPage/SucessPaymentPage'
+import CancelPaymentPage from '../pages/CancelPaymentPage/CancelPaymentPage'
 
 const AppRoutes = () => {
     return (
@@ -56,6 +59,10 @@ const AppRoutes = () => {
                 <Route index element={<ClassesListPage />}></Route>
             </Route>
 
+            <Route path='/class/:id' element={<IsPrivate />}>
+                <Route index element={<ClassesPage />}></Route>
+            </Route>
+
             <Route path='/classes/create' element={<IsPrivate />}>
                 <Route index element={<ClassesCreatePage />}></Route>
             </Route>
@@ -86,6 +93,14 @@ const AppRoutes = () => {
 
             <Route path='/reviews/edit/:review_id/:reviewed_user' element={<IsPrivate />}>
                 <Route index element={<ReviewsEditPage />}></Route>
+            </Route>
+
+            <Route path='/payments/success' element={<IsPrivate />}>
+                <Route index element={<SucessPaymentPage />}></Route>
+            </Route>
+
+            <Route path='/payments/cancel' element={<IsPrivate />}>
+                <Route index element={<CancelPaymentPage />}></Route>
             </Route>
 
             <Route path='/contact' element={<ContactPage />}></Route>

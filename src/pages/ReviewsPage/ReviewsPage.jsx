@@ -21,7 +21,7 @@ const ReviewsCreationPage = () => {
     const { fadeOut, triggerFadeOut } = useContext(StylesContext)
 
     function handleClick() {
-        triggerFadeOut(`/users/${user_id}`)
+        triggerFadeOut(-1)
     }
 
     useEffect(() => {
