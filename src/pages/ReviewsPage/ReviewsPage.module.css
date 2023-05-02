@@ -14,11 +14,19 @@
     margin-top: 120px;
 }
 
+.ReviewsCreationPage form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
 .fadeOut {
     opacity: 0;
 }
 
 .ratingInput {
+    width: 600px;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -27,15 +35,15 @@
 
 .ratingInput input {
     margin-top: 20px;
+    width: 50%;
 }
 
 .ratingInput label {
-    font-size: 32px;
+    font-size: 2.5em;
 }
 
 .ratingStars {
     display: flex;
     justify-content: center;
-    font-size: 2em;
-    margin-bottom: 20px;
+    margin: 40px 0 0;
 }

@@ -1,7 +1,7 @@
 import styles from './PostCard.module.css'
 import CloseButton from '../CloseButton/CloseButton'
-import { AiFillEdit } from 'react-icons/ai'
 import postService from '../../services/post.service'
+import { AiFillEdit } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { StylesContext } from '../../contexts/styles.context'
 import { useContext } from 'react'
@@ -28,18 +28,21 @@ const PostCard = ({ post, setAllPosts, setPostsCopy }) => {
                     <Link onClick={() => triggerFadeOut(`/posts/edit/${post._id}`)}><AiFillEdit className={styles.editBtn} size={20} color='white' /></Link>
                 </>
             }
+
             <div className={styles.info}>
-                <p>{title}</p>
-                <p>{description}</p>
-                <div className={styles.interests}>
-                    {
-                        author.interests.map(interest => {
-                            return (
-                                <div key={interest} className={styles.interest}>{interest}</div>
-                            )
-                        })
-                    }
-                </div>
+                <Link onClick={() => triggerFadeOut(author._id === user._id ? '/profile' : `/users/${author._id}`)}>
+                    <p>{title}</p>
+                    <p className={styles.description}>{description}</p>
+                    <div className={styles.interests}>
+                        {
+                            author.interests.map(interest => {
+                                return (
+                                    <div key={interest} className={styles.interest}>{interest}</div>
+                                )
+                            })
+                        }
+                    </div>
+                </Link>
             </div>
 
             <div className={styles.personDetails}>

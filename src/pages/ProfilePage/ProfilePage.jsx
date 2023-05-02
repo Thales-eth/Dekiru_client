@@ -2,24 +2,23 @@ import styles from './ProfilePage.module.css'
 import UserInfo from '../../components/UserInfo/UserInfo'
 import Welcome from '../../components/Welcome/Welcome'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
-import ReviewCard from '../../components/ReviewCard/ReviewCard'
 import userService from '../../services/user.service'
 import UserArticle from '../../components/UserArticle/UserArticle'
 import Interests from '../../components/Interests/Interests'
 import ReviewsSection from '../../components/ReviewsSection/ReviewsSection'
+import ClassProfileCard from '../../components/ClassProfileCard/ClassProfileCard'
+import { Link } from 'react-router-dom'
 import { StylesContext } from '../../contexts/styles.context'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import ClassProfileCard from '../../components/ClassProfileCard/ClassProfileCard'
 
 const ProfilePage = () => {
-    const { user, handleNavigation } = useContext(AuthContext)
-    const { triggerFadeOut, fadeOut } = useContext(StylesContext)
+    const { user } = useContext(AuthContext)
+    const { triggerFadeOut, fadeOut, handleNavigation } = useContext(StylesContext)
 
-    const [classes, setClasses] = useState([])
-    const [friends, setFriends] = useState([])
-    const [matches, setMatches] = useState([])
+    const [profileUser, setProfileUser] = useState({ classes: [], penfriends: [], matches: [], reviews: [] })
+
+    const { classes, penfriends, matches } = profileUser
 
     function handleClick() {
         triggerFadeOut('/profile/delete')
@@ -32,9 +31,7 @@ const ProfilePage = () => {
     async function getPopulatedUser() {
         try {
             const populatedUser = await userService.getPopulatedUser(user._id).then(({ data }) => data)
-            setClasses(populatedUser.classes)
-            setFriends(populatedUser.penfriends)
-            setMatches(populatedUser.matches)
+            setProfileUser(populatedUser)
         }
         catch (error) {
             console.log(error)
@@ -62,7 +59,7 @@ const ProfilePage = () => {
                         classes.length ?
                             classes.map(userClass => {
                                 return (
-                                    <ClassProfileCard key={userClass._id} singleClass={userClass} setAllClasses={setClasses} cardWidth={"500px"} cardHeight={"250px"} photoWidth={"100px"} photoHeight={"100px"} />
+                                    <ClassProfileCard key={userClass._id} singleClass={userClass} setProfileUser={setProfileUser} cardWidth={"500px"} cardHeight={"250px"} photoWidth={"100px"} photoHeight={"100px"} />
                                 )
                             })
                             :
@@ -90,7 +87,7 @@ const ProfilePage = () => {
                 </div>
             </div>
 
-            <ReviewsSection userData={user} showReview={false} />
+            <ReviewsSection userData={profileUser} showReview={false} />
 
             <div className={styles.friendsSection}>
 
@@ -99,8 +96,8 @@ const ProfilePage = () => {
 
                 <div className={styles.carrousel}>
                     {
-                        friends.length ?
-                            friends.map(friend => {
+                        penfriends.length ?
+                            penfriends.map(friend => {
                                 return (
                                     <UserArticle link={`/users/${friend._id}`} key={friend._id} user={friend} />
                                 )

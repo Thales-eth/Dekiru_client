@@ -1,20 +1,19 @@
 import styles from './CtaCard.module.css'
+import { DEKIRU_MOTTO } from '../../consts/index'
 import { useContext } from 'react'
-import { AuthContext } from '../../contexts/auth.context'
 import { Link } from 'react-router-dom'
+import { StylesContext } from '../../contexts/styles.context'
 
 const CtaCard = ({ link }) => {
 
-    const { handleNavigation } = useContext(AuthContext)
+    const { handleNavigation } = useContext(StylesContext)
 
     return (
         <Link onClick={handleNavigation} to={link}>
             <div className={`${styles.card} ${styles.pinkCard}`}>
                 <div className={styles.info}>
                     <h2>Find Someone Just <br /> Like <br /> <span>You</span></h2>
-                    <p>Dekiru helps you find
-                        people who share your same
-                        interests.</p>
+                    <p>{DEKIRU_MOTTO}</p>
                 </div>
 
                 <div className={styles.cta}>

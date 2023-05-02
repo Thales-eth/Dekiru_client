@@ -3,6 +3,16 @@ import InitAxios from "./init.service";
 class ClassService extends InitAxios {
     constructor() {
         super("class")
+
+        this.api.interceptors.request.use(config => {
+            const authToken = localStorage.getItem("authToken")
+
+            if (authToken) {
+                config.headers = { Authorization: `Bearer ${authToken}` }
+            }
+
+            return config
+        })
     }
 
     getAllClasses(skipValue) {
@@ -29,8 +39,8 @@ class ClassService extends InitAxios {
         return this.api.put(`/edit/${id}`, body)
     }
 
-    deleteClass(classId, teacherId) {
-        return this.api.delete(`/delete/${classId}/${teacherId}`)
+    deleteClass(classId) {
+        return this.api.delete(`/delete/${classId}`)
     }
 
     static getInstance() {

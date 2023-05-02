@@ -19,6 +19,7 @@ const UserDetails = () => {
 
     const [allReviews, setAllReviews] = useState([])
     const [showLoader, setShowLoader] = useState(true)
+    const [showButton, setShowButton] = useState(true)
 
     const { fadeOut, triggerFadeOut } = useContext(StylesContext)
 
@@ -27,8 +28,11 @@ const UserDetails = () => {
     const [isFriend, setIsFriend] = useState(user.penfriends.includes(userId))
     const [isFollower, setIsFollower] = useState(userData.penfriends.includes(user._id))
 
+    const lastReviewIndex = userData.reviews.length - 1
+
     useEffect(() => {
         setIsFollower(userData.penfriends.includes(user._id))
+        setShowLoader(lastReviewIndex !== allReviews.length - 1)
     }, [userData])
 
     function handleClick() {
@@ -38,10 +42,6 @@ const UserDetails = () => {
     function loadReviews(e) {
         e.preventDefault()
 
-        const lastReviewIndex = userData.reviews.length - 1
-        if (lastReviewIndex === allReviews.length - 1) {
-            setShowLoader(false)
-        }
         if (showLoader) setUserData({ ...userData, reviews: allReviews.slice(0, lastReviewIndex + 2) })
         else {
             setUserData({ ...userData, reviews: allReviews.slice(0, 2) })
@@ -77,6 +77,7 @@ const UserDetails = () => {
 
     useEffect(() => {
         setUserData({ ...userData, reviews: allReviews.slice(0, 2) })
+        setShowButton(allReviews.length >= 2)
     }, [allReviews])
 
     async function getUserData() {
@@ -122,7 +123,10 @@ const UserDetails = () => {
 
             <ReviewsSection showReview={true} setUserData={setUserData} userData={userData} handleClick={handleClick} />
 
-            <LoadButton showLoader={showLoader} handleClick={loadReviews} />
+            {
+                showButton &&
+                <LoadButton showLoader={showLoader} handleClick={loadReviews} />
+            }
 
         </div>
     )

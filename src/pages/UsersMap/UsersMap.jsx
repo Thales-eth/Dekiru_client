@@ -1,6 +1,7 @@
 import styles from './UsersMap.module.css'
 import userService from '../../services/user.service'
 import Map from '../../components/Map/Map'
+import { MAP_MSG } from '../../consts'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext, useEffect, useRef, useState } from 'react'
 
@@ -9,7 +10,6 @@ const UsersMap = () => {
 
     const [nearUsers, setNearUsers] = useState([])
     const { user } = useContext(AuthContext)
-    // const mapReference = useRef(null)
 
     useEffect(() => {
         loadNearestUsers()
@@ -27,7 +27,7 @@ const UsersMap = () => {
 
     return (
         <div className={styles.mapPage}>
-            <h1>Closer Penfriends!</h1>
+            <h1>{MAP_MSG}</h1>
             <Map users={nearUsers} />
         </div>
     )

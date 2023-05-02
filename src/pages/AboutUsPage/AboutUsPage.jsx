@@ -1,17 +1,17 @@
 import styles from './AboutUsPage.module.css'
-import ramen from './assets/ramen.png'
-import me from './assets/Profilepic_.png'
+import { ABOUT_ME_MOTTO } from '../../consts'
 import { Link } from 'react-router-dom'
 import { BsArrowRight } from 'react-icons/bs'
+
+const me = "https://res.cloudinary.com/dagndlfhj/image/upload/v1682536679/movie-gallery/pmelgswuysdldnylvlwv.png"
+const ramen = "https://res.cloudinary.com/dagndlfhj/image/upload/v1682797421/ramen-min_tr6dlr.jpg"
 
 const AboutUsPage = () => {
     return (
         <div className={styles.aboutPage}>
             <h1>About Me...</h1>
 
-            <p className={styles.motto}>I’m a fullstack developer
-                obsessed with growth, learning
-                and FOOD  </p>
+            <p className={styles.motto}>{ABOUT_ME_MOTTO}</p>
 
             <Link to="mailto:dan.console.log@gmail.com" className={styles.ctaButton}>Let's talk</Link>
 
@@ -27,8 +27,8 @@ const AboutUsPage = () => {
                 </div>
 
                 <div className={styles.photos}>
-                    <div style={{ "backgroundImage": `url(${ramen})` }} className={styles.ramen}></div>
-                    <div style={{ "backgroundImage": `url(${me})` }} className={styles.profilePic}></div>
+                    <img src={ramen} className={styles.ramen} />
+                    <img src={me} className={styles.profilePic} />
                 </div>
             </div >
         </div >

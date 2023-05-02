@@ -3,7 +3,6 @@ import SpainFlag from "../../components/assets/spain.png"
 import JapanFlag from "../../components/assets/japan.png"
 import getStars from '../../utils/getStars'
 
-
 const UserInfo = ({ user, ProfilePic }) => {
     return (
         <div className={styles.userInfo}>

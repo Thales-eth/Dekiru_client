@@ -10,7 +10,7 @@ import { StylesContext } from '../../contexts/styles.context'
 
 const ClassesPage = () => {
 
-    const [singleClass, setSingleClass] = useState({ teacher: { avatar: "", username: "", score: 0 }, title: "", description: "" })
+    const [singleClass, setSingleClass] = useState({ teacher: { avatar: "", username: "", score: 0 }, title: "", description: "", productId: "" })
     const [userData, setUserData] = useState({ username: "", avatar: "", interests: [], score: 0, reviews: [], penfriends: [] })
     const [stripePaymentInfo, setStripePaymentInfo] = useState({ url: "" })
     const { url } = stripePaymentInfo
@@ -21,11 +21,14 @@ const ClassesPage = () => {
 
     useEffect(() => {
         loadClass()
-        loadPayment()
     }, [])
 
+    useEffect(() => {
+        loadPayment()
+    }, [singleClass])
+
     function handleClick() {
-        triggerFadeOut(`/reviews/create/${id}`)
+        triggerFadeOut(`/reviews/create/${userData._id}`)
     }
 
     async function loadClass() {
@@ -35,12 +38,14 @@ const ClassesPage = () => {
     }
 
     async function loadPayment() {
-        const paymentInfo = await stripeService.createPaymentSession().then(({ data }) => data)
-        setStripePaymentInfo(paymentInfo)
+        if (singleClass.productId) {
+            const paymentInfo = await stripeService.createPaymentSession(singleClass.productId).then(({ data }) => data)
+            setStripePaymentInfo(paymentInfo)
+        }
     }
 
     return (
-        <div className={styles.classPlage}>
+        <div className={`${styles.classPlage} ${fadeOut && styles.fadeOut}`}>
             <div className="banner">
                 <Welcome link={url} message={`${title} with`} user={teacher} buttonText={"Book Class"} />
                 <UserInfo user={teacher} ProfilePic={teacher.avatar} />

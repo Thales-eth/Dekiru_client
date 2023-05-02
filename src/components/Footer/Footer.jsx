@@ -1,13 +1,13 @@
-import { useContext } from 'react'
 import styles from './Footer.module.css'
 import { SlSocialInstagram } from 'react-icons/sl'
 import { SlSocialTwitter } from 'react-icons/sl'
 import { SlSocialYoutube } from 'react-icons/sl'
+import { StylesContext } from '../../contexts/styles.context'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../contexts/auth.context'
 
 const Footer = () => {
-    const { handleNavigation } = useContext(AuthContext)
+    const { handleNavigation } = useContext(StylesContext)
 
     return (
         <div className={styles.footer}>

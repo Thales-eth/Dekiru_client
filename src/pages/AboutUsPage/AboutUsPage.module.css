@@ -77,12 +77,14 @@
 }
 
 .ramen {
+    display: block;
     position: relative;
     top: 200px;
     left: 60px;
     z-index: 1;
-    background-size: cover;
-    background-position: center;
+    /* background-size: cover; */
+    /* background-position: center; */
+    object-fit: cover;
     width: 286px;
     height: 251px;
     border: 7px solid #000000;
@@ -90,9 +92,9 @@
 }
 
 .profilePic {
+    display: block;
+    object-fit: cover;
     position: relative;
-    background-size: cover;
-    background-position: center;
     width: 289px;
     height: 460px;
     border: 7px solid #000000;

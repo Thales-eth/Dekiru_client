@@ -2,6 +2,7 @@ import styles from './MatchPage.module.css'
 import Loader from '../../components/Loader/Loader'
 import userService from '../../services/user.service'
 import UserArticle from '../../components/UserArticle/UserArticle'
+import { NO_MATCH_MSG } from '../../consts'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/auth.context'
 import { Link } from 'react-router-dom'
@@ -13,6 +14,7 @@ const MatchPage = () => {
     const [isRevealed, setIsRevealed] = useState(false)
     const [match, setMatch] = useState(null)
     const { user } = useContext(AuthContext)
+
     const numbers = []
     for (let i = 0; i < 40; i++) numbers.push(i)
 
@@ -26,7 +28,6 @@ const MatchPage = () => {
         const matchUser = await userService.getMatch(user._id).then(({ data }) => data)
         setCanShow(true)
         if (matchUser && !match) {
-            console.log("ENTROOOO JAJAJA")
             setMatch(matchUser)
         }
         else {
@@ -66,7 +67,7 @@ const MatchPage = () => {
                                     </div>
                                     :
                                     <div className={styles.noMatchMsg}>
-                                        <p>No tienes Match ╯°□°）╯︵ ┻━┻</p>
+                                        <p>{NO_MATCH_MSG}</p>
                                         <Link to={"/profile/edit"} className={styles.link}>Forgotten adding interests?</Link>
                                     </div>
                         }

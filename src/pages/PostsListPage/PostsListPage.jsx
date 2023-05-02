@@ -4,6 +4,7 @@ import Finder from '../../components/Finder/Finder'
 import StickyButton from '../../components/StickyButton/StickyButton'
 import PostService from '../../services/post.service'
 import Loader from '../../components/Loader/Loader'
+import { NO_MORE_POSTS_MSG } from '../../consts'
 import { StylesContext } from '../../contexts/styles.context'
 import { useContext, useEffect, useState } from 'react'
 
@@ -86,7 +87,7 @@ const PostsListPage = () => {
                     <Loader />
                     :
                     dontShow &&
-                    <p className="noPosts">There are no more posts to show!</p>
+                    <p className="noPosts">{NO_MORE_POSTS_MSG}</p>
             }
 
             <StickyButton text={"Create a Post"} handleClick={handleClick} />

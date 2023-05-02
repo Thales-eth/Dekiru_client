@@ -1,12 +1,12 @@
 import styles from './Finder.module.css'
 import JapanFlag from '../../components/assets/japan.png'
 import SpainFlag from '../../components/assets/spain.png'
+import userService from '../../services/user.service';
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { HiSearch } from 'react-icons/hi';
 import { BiReset } from 'react-icons/bi'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext, useRef, useState } from 'react';
-import userService from '../../services/user.service';
 
 const Finder = ({ title, setAllPosts, postsCopy }) => {
 

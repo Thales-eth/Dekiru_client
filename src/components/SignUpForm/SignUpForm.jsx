@@ -6,14 +6,12 @@ import { TiDelete } from 'react-icons/ti'
 const SignUpForm = ({ changeVision, canSee, userData, setUserData, handleSubmit, handleInputChange, showPassword }) => {
 
     const { email, username, password, age, language, interests, location } = userData
-    const [activeLanguage, setActiveLanguage] = useState(null)
 
     const interestsInputRef = useRef(null);
     const [canAdd, setCanAdd] = useState(true)
 
     const handleFlagChange = (value) => {
         setUserData({ ...userData, language: value })
-        setActiveLanguage(value)
     }
 
     const handleFileUpload = (e) => {
@@ -60,26 +58,21 @@ const SignUpForm = ({ changeVision, canSee, userData, setUserData, handleSubmit,
         }
     }, [interests])
 
-
-    useEffect(() => {
-        setActiveLanguage(language)
-    }, [language])
-
     return (
         <form onSubmit={handleSubmit} className={styles.signupForm}>
             <div>
                 <label htmlFor="username"></label>
-                <input autoComplete='current-password' autoFocus name='username' value={username} onChange={handleInputChange} id='username' type="text" placeholder='Username' />
+                <input autoFocus name='username' value={username} onChange={handleInputChange} id='username' type="text" placeholder='Username' />
             </div>
 
             <div>
                 <label htmlFor="age"></label>
-                <input autoComplete='current-password' name='age' min={16} value={age} onChange={handleInputChange} id='age' type="number" placeholder='Age' />
+                <input name='age' min={16} value={age} onChange={handleInputChange} id='age' type="number" placeholder='Age' />
             </div>
 
             <div>
                 <label htmlFor="email"></label>
-                <input autoComplete='current-password' name='email' value={email} onChange={handleInputChange} id='email' type="text" placeholder='Email' />
+                <input name='email' value={email} autoComplete='username' onChange={handleInputChange} id='email' type="text" placeholder='Email' />
             </div>
 
             {
@@ -98,7 +91,7 @@ const SignUpForm = ({ changeVision, canSee, userData, setUserData, handleSubmit,
 
             <div className={styles.interestInput}>
                 <label htmlFor="interests"></label>
-                <input onKeyDown={handleEnter} ref={interestsInputRef} autoComplete='current-password' name='interests' id='interests' type="text" placeholder='Add Interest' />
+                <input onKeyDown={handleEnter} ref={interestsInputRef} name='interests' id='interests' type="text" placeholder='Add Interest' />
                 {
                     canAdd ?
                         <div className={styles.interestBtn} onClick={handleInterestSubmit}>Add</div>
@@ -122,8 +115,8 @@ const SignUpForm = ({ changeVision, canSee, userData, setUserData, handleSubmit,
             <div className={styles.language} >
                 <p>What is your native Language?</p>
                 <div className={styles.languages}>
-                    <div onClick={() => handleFlagChange("Spanish")} className={`${styles.spanish} ${activeLanguage === "Spanish" && styles.active}`}></div>
-                    <div onClick={() => handleFlagChange("Japanese")} className={`${styles.japanese} ${activeLanguage === "Japanese" && styles.active}`}></div>
+                    <div onClick={() => handleFlagChange("Spanish")} className={`${styles.spanish} ${language === "Spanish" && styles.active}`}></div>
+                    <div onClick={() => handleFlagChange("Japanese")} className={`${styles.japanese} ${language === "Japanese" && styles.active}`}></div>
                 </div>
             </div>
 

@@ -7,6 +7,7 @@
     border-radius: 30px;
     margin-right: 55px;
     min-width: 300px;
+    max-width: 400px;
     padding: 50px 100px;
     margin-bottom: 45px;
 }
@@ -27,12 +28,15 @@
 }
 
 .classCard p {
-    font-size: 32px;
+    font-size: 20px;
     line-height: 48px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .classCard .info {
-    width: 60%;
+    max-width: 60%;
     margin-right: 30px;
     margin-bottom: 10px;
 }
@@ -46,6 +50,10 @@
     border-radius: 100%;
     object-fit: cover;
     transition: 0.3s;
+}
+
+.personInfo {
+    margin-left: 20px;
 }
 
 .personInfo span {

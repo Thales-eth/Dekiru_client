@@ -1,4 +1,3 @@
-import styles from './Map.module.css'
 import MapStyles from './MapStyles.json'
 import { memo, useCallback, useContext, useState } from 'react';
 import { StylesContext } from '../../contexts/styles.context'
@@ -42,7 +41,7 @@ const Map = ({ users }) => {
             options={{ styles: MapStyles }}
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={10}
+            zoom={13}
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
@@ -52,7 +51,6 @@ const Map = ({ users }) => {
                     return (
                         <Marker
                             key={user._id}
-                            // icon={japanflag}
                             title={user.username}
                             position={{ lat: user.location.coordinates[0], lng: user.location.coordinates[1] }}
                             onClick={() => triggerFadeOut(`/users/${user._id}`)}

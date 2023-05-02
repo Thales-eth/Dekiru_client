@@ -11,7 +11,7 @@ const IsPrivate = () => {
 
     if (!user) return <Navigate to={"/login"}></Navigate>
 
-    return <Outlet></Outlet>
+    return <Outlet />
 }
 
 export default IsPrivate

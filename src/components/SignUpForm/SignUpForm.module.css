@@ -1,3 +1,10 @@
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .signupForm input,
 select {
     font-family: 'Poppins', sans-serif;
@@ -107,8 +114,8 @@ select {
 .pwdLogo {
     cursor: pointer;
     position: absolute;
-    bottom: 30px;
-    right: 20px;
+    bottom: 20%;
+    right: 5%;
 }
 
 .avatar {

@@ -1,5 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
 import styles from './PaymentMsg.module.css'
+import { Link, useNavigate } from 'react-router-dom'
 
 const PaymentMsg = ({ msg, subMsg, link }) => {
     const navigate = useNavigate()

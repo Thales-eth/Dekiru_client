@@ -1,5 +1,5 @@
 import styles from './NavBar.module.css'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'

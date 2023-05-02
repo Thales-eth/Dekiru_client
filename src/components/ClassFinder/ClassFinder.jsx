@@ -1,11 +1,11 @@
-import JapanFlag from '../../components/assets/japan.png'
 import styles from './ClassFinder.module.css'
+import JapanFlag from '../../components/assets/japan.png'
 import SpainFlag from '../../components/assets/spain.png'
+import userService from '../../services/user.service'
 import { useContext, useRef, useState } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { HiSearch } from 'react-icons/hi';
 import { BiReset } from 'react-icons/bi'
-import userService from '../../services/user.service'
 import { AuthContext } from '../../contexts/auth.context'
 
 const ClassFinder = ({ setAllClasses, allClassesCopy }) => {
@@ -18,8 +18,8 @@ const ClassFinder = ({ setAllClasses, allClassesCopy }) => {
     const triggerLanguageFilter = (language) => {
         setActiveLanguage(language)
 
-        const filteredByLanguageClasses = allClassesCopy.filter(singleClass => singleClass.teacher.language === language)
-        setAllClasses(filteredByLanguageClasses)
+        const classesFilteredByLanguage = allClassesCopy.filter(singleClass => singleClass.teacher.language === language)
+        setAllClasses(classesFilteredByLanguage)
     }
 
     const handleInputChange = (e) => {

@@ -3,21 +3,26 @@ import getStars from '../../utils/getStars'
 import reviewService from '../../services/reviews.service'
 import CloseButton from '../CloseButton/CloseButton'
 import { AiFillEdit } from 'react-icons/ai'
-import { useContext } from 'react'
 import { AuthContext } from '../../contexts/auth.context'
 import { Link, useParams } from 'react-router-dom'
 import { StylesContext } from '../../contexts/styles.context'
+import { useContext } from 'react'
 
 
-const ReviewCard = ({ src, setUserData, reviewId, id, title, text, rating, cardWidth, cardHeight, photoWidth, photoHeight, name, ratingMargin }) => {
+const ReviewCard = ({ src, setUserData, reviewId, id, title, text, rating, cardWidth, cardHeight, photoWidth, photoHeight, name, teacherId, ratingMargin }) => {
 
-    const { user, handleNavigation } = useContext(AuthContext)
-    const { triggerFadeOut } = useContext(StylesContext)
-    const { id: userId } = useParams()
+    const { user } = useContext(AuthContext)
+    const { triggerFadeOut, handleNavigation } = useContext(StylesContext)
+    const { user_id: userId } = useParams()
 
     async function deleteReview(reviewId) {
         try {
-            const updatedUser = await reviewService.deleteReview(userId, reviewId).then(({ data }) => data)
+            if (teacherId) {
+                const updatedUser = await reviewService.deleteReview(reviewId, teacherId).then(({ data }) => data)
+                setUserData(updatedUser)
+                return
+            }
+            const updatedUser = await reviewService.deleteReview(reviewId, userId).then(({ data }) => data)
             setUserData(updatedUser)
         }
         catch (error) {
@@ -26,7 +31,7 @@ const ReviewCard = ({ src, setUserData, reviewId, id, title, text, rating, cardW
     }
 
     function triggerActions() {
-        triggerFadeOut(`/reviews/edit/${reviewId}/${userId}`)
+        triggerFadeOut(teacherId ? `/reviews/edit/${reviewId}/${teacherId}` : `/reviews/edit/${reviewId}/${userId}`)
     }
 
     return (

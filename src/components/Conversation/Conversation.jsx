@@ -1,6 +1,7 @@
 import styles from './Conversation.module.css'
 import getHumanHour from '../../utils/getHumanHour'
 import EmojiPicker from 'emoji-picker-react';
+import uploadService from '../../services/upload.service';
 import { AudioRecorder } from 'react-audio-voice-recorder';
 import { HiDownload } from 'react-icons/hi'
 import { AiOutlineDownCircle } from 'react-icons/ai'
@@ -42,9 +43,23 @@ const Conversation = ({ setMsg, msg, handleFileInput, currentConversation, handl
         setShowEmojis(false)
     }
 
-    function addAudioElement(blob) {
+    async function addAudioElement(blob) {
         const url = URL.createObjectURL(blob);
-        handleSubmit("", true, { sender: user._id, message: url })
+
+        const fileUrl = await blobUrlToFile(url)
+
+        const formData = new FormData()
+        formData.append("audioUrl", fileUrl)
+
+        const cloudinaryUrl = await uploadService.uploadAudio(formData).then(({ data }) => data)
+        console.log("WHO THE FUCK ==>", cloudinaryUrl)
+    }
+
+    async function blobUrlToFile(blobUrl) {
+        const response = await fetch(blobUrl);
+        const blob = await response.blob();
+        const filename = `audio_${Date.now()}.wav`;
+        return new File([blob], filename, { type: 'audio/wav' });
     }
 
     return (

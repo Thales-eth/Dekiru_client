@@ -2,11 +2,11 @@ import styles from './ConversationsListPage.module.css'
 import ChatCard from '../../components/ChatCard/ChatCard'
 import Conversation from '../../components/Conversation/Conversation'
 import conversationService from '../../services/conversation.service'
-import io from 'socket.io-client'
-import messageService from '../../services/message.service'
-import { useContext, useEffect, useRef, useState } from 'react'
-import { AuthContext } from '../../contexts/auth.context'
 import uploadService from '../../services/upload.service'
+import messageService from '../../services/message.service'
+import { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../../contexts/auth.context'
+import io from 'socket.io-client';
 
 const ConversationsListPage = () => {
 
@@ -14,17 +14,36 @@ const ConversationsListPage = () => {
     const [currentConversation, setCurrentConversation] = useState({ participants: [], messages: [] })
     const { user } = useContext(AuthContext)
     const [msg, setMsg] = useState({ sender: user._id, message: "" })
-    const invisibleRef = useRef(null)
+    const [socket, setSocket] = useState(null);
 
-    const socket = io.connect(`http://localhost:5005`, { transports: ['websocket'] })
+    useEffect(() => {
+        if (!socket) {
+            const newSocket = io.connect(`http://localhost:5005`, { transports: ['websocket'] });
+            setSocket(newSocket)
+        }
+
+        if (socket) {
+            socket.on('successfulMsgCreation', (createdMsg) => {
+                setCurrentConversation({ ...currentConversation, messages: [...currentConversation.messages, createdMsg] })
+                setMsg({ sender: user._id, message: "" })
+            });
+
+            socket.on('disconnect', (reason) => {
+                console.log('Socket disconnected:', reason);
+            });
+        }
+
+    }, [socket, currentConversation, user._id])
 
     useEffect(() => {
         loadConversations()
-    }, [])
+    }, [currentConversation])
 
     async function handleConversationChange(conversation) {
         const populatedConversation = await messageService.getConversationMessages(conversation._id).then(({ data }) => data)
         setCurrentConversation(populatedConversation)
+
+        socket.emit('joinConversation', { conversation_id: conversation._id, user_id: user._id })
         loadConversations()
     }
 
@@ -39,14 +58,12 @@ const ConversationsListPage = () => {
     }
 
     async function handleFileInput(e) {
-        // NO ESTÁS CREANDO EL LINK COMO MENSAJE Y, POR LO TANTO, NO HAY PERSISTENCIA...
         const file = e.target.files[0]
         const formData = new FormData()
         formData.append("imageUrl", file)
         try {
             const cloudinaryLink = await uploadService.uploadPhoto(formData).then(({ data }) => data)
             handleSubmit("", true, { sender: user._id, message: cloudinaryLink })
-            // setCurrentConversation({ ...currentConversation, messages: [...currentConversation.messages, { ...currentConversation.messages.at(-1), message: cloudinaryLink }] })
         }
         catch (error) {
             console.log(error)
@@ -57,11 +74,6 @@ const ConversationsListPage = () => {
         if (e.key === "Enter" || bool) {
             try {
                 socket.emit('createMessage', { conversation_id: currentConversation._id, message });
-
-                socket.on('myCustomEventResponse', (data) => {
-                    handleConversationChange(currentConversation)
-                    setMsg({ sender: user._id, message: "" })
-                });
             }
             catch (error) {
                 console.log(error)

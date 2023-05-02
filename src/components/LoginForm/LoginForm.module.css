@@ -28,15 +28,15 @@
     transform: scale(1.1);
 }
 
-.password input {
+.password {
     position: relative;
 }
 
 .pwdLogo {
     cursor: pointer;
     position: absolute;
-    bottom: 338px;
-    right: 675px;
+    bottom: 20%;
+    right: 5%;
 }
 
 .signupLink {

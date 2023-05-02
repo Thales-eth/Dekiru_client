@@ -3,6 +3,16 @@ import InitAxios from "./init.service";
 class UserService extends InitAxios {
     constructor() {
         super("user")
+
+        this.api.interceptors.request.use(config => {
+            const authToken = localStorage.getItem("authToken")
+
+            if (authToken) {
+                config.headers = { Authorization: `Bearer ${authToken}` }
+            }
+
+            return config
+        })
     }
 
     getHomePageStudents() {

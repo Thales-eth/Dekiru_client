@@ -11,26 +11,22 @@ const AuthProviderWrapper = (props) => {
 
     const navigate = useNavigate()
 
-    const handleNavigation = () => {
-        window.scrollTo(0, 0)
-    }
-
     const authenticateUser = async () => {
         const token = localStorage.getItem("authToken")
 
-        if (token) {
-            try {
-                const userData = await authService.getLoggedUser(token).then(({ data }) => data)
-                setIsLoading(false)
-                setUser(userData)
-            }
-            catch (error) {
-                setIsLoading(false)
-                logout()
-            }
+        if (!token) {
+            setIsLoading(false)
+            return
         }
 
-        else {
+        try {
+            const userData = await authService.getLoggedUser(token).then(({ data }) => data)
+            setUser(userData)
+        }
+        catch (error) {
+            console.log(error)
+        }
+        finally {
             setIsLoading(false)
         }
     }
@@ -39,9 +35,14 @@ const AuthProviderWrapper = (props) => {
         localStorage.setItem("authToken", token)
     }
 
+    const getToken = () => {
+        return localStorage.getItem("authToken")
+    }
+
     const logout = async () => {
         await localStorage.removeItem("authToken")
-        await setUser(null)
+        setUser(null)
+        setIsLoading(false)
         navigate("/login")
     }
 
@@ -50,7 +51,7 @@ const AuthProviderWrapper = (props) => {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ authenticateUser, user, setUser, logout, storeToken, isLoading, setIsLoading, handleNavigation }}>
+        <AuthContext.Provider value={{ authenticateUser, user, setUser, logout, storeToken, getToken, isLoading, setIsLoading }}>
             {props.children}
         </AuthContext.Provider>
     )

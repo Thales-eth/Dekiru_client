@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
-import { BsArrowRight } from 'react-icons/bs'
 import styles from './HomeCard.module.css'
+import { BsArrowRight } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { AuthContext } from '../../contexts/auth.context'
+import { StylesContext } from '../../contexts/styles.context'
 
 const HomeCard = ({ headerText, paragraph, src, link }) => {
-    const { handleNavigation } = useContext(AuthContext)
+    const { handleNavigation } = useContext(StylesContext)
 
     return (
         <Link to={link} onClick={handleNavigation}><div className={`${styles.card} ${styles.blackCard}`}>

@@ -3,6 +3,16 @@ import InitAxios from "./init.service";
 class AuthService extends InitAxios {
     constructor() {
         super('auth')
+
+        this.api.interceptors.request.use(config => {
+            const authToken = localStorage.getItem("authToken")
+
+            if (authToken) {
+                config.headers = { Authorization: `Bearer ${authToken}` }
+            }
+
+            return config
+        })
     }
 
     signup(body) {
@@ -13,10 +23,8 @@ class AuthService extends InitAxios {
         return this.api.post("/login", body)
     }
 
-    getLoggedUser(token) {
-        const headers = { Authorization: `Bearer ${token}` }
-
-        return this.api.get("/getLoggedUser", { headers })
+    getLoggedUser() {
+        return this.api.get("/getLoggedUser")
     }
 
     static getInstance() {

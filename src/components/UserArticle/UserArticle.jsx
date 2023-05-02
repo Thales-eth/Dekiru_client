@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom'
 import styles from './UserArticle.module.css'
+import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { AuthContext } from '../../contexts/auth.context'
+import { StylesContext } from '../../contexts/styles.context'
 
 const UserArticle = ({ user, link }) => {
-    const { handleNavigation } = useContext(AuthContext)
+    const { triggerNavigation } = useContext(StylesContext)
 
     return (
-        <Link to={link} onClick={handleNavigation}>
+        <Link onClick={e => triggerNavigation(link, e)}>
             <article className={`${styles.caseStudy} ${styles.case1}`} style={{ backgroundImage: `url(${user.avatar})` }}>
                 <div className={styles.name}>{user.username}</div>
                 <div className={styles.age}>{user.age}</div>

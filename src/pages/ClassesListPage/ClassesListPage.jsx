@@ -4,6 +4,7 @@ import StickyButton from '../../components/StickyButton/StickyButton'
 import Loader from '../../components/Loader/Loader'
 import ClassCard from '../../components/ClassCard/ClassCard'
 import ClassFinder from '../../components/ClassFinder/ClassFinder'
+import { NO_MORE_CLASSES_MSG } from '../../consts'
 import { AuthContext } from '../../contexts/auth.context'
 import { StylesContext } from '../../contexts/styles.context'
 import { useContext, useEffect, useState } from 'react'
@@ -67,8 +68,6 @@ const ClassesListPage = () => {
         setAllClassesCopy([...allClasses, ...classesList])
     }
 
-
-
     return (
         <div className={`${styles.classListPage} ${fadeOut && styles.fadeOut}`}>
             <ClassFinder allClassesCopy={allClassesCopy} setAllClasses={setAllClasses} />
@@ -78,7 +77,7 @@ const ClassesListPage = () => {
                     {
                         allClasses.map(singleClass => {
                             return (
-                                <ClassCard key={singleClass._id} singleClass={singleClass} setAllClasses={setAllClasses} />
+                                <ClassCard key={singleClass._id} singleClass={singleClass} setAllClasses={setAllClasses} setAllClassesCopy={setAllClassesCopy} />
                             )
                         })
                     }
@@ -91,7 +90,7 @@ const ClassesListPage = () => {
                     <Loader />
                     :
                     dontShow &&
-                    <p className="noPosts">There are no more classes to show!</p>
+                    <p className="noPosts">{NO_MORE_CLASSES_MSG}</p>
             }
 
 

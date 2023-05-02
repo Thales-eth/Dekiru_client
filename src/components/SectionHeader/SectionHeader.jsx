@@ -1,4 +1,4 @@
-import styles from './SectionHeader.module.css'
+import './SectionHeader.module.css'
 
 const SectionHeader = ({ text, css }) => {
     return (

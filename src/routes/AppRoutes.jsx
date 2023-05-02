@@ -1,4 +1,3 @@
-import { Route, Routes } from 'react-router-dom'
 import HomePage from '../pages/HomePage/HomePage'
 import LoginPage from '../pages/LoginPage/LoginPage'
 import SignupPage from '../pages/SignupPage/SignupPage'
@@ -23,6 +22,7 @@ import UsersMap from '../pages/UsersMap/UsersMap'
 import ClassesPage from '../pages/ClassesPage/ClassesPage'
 import SucessPaymentPage from '../pages/SucessPaymentPage/SucessPaymentPage'
 import CancelPaymentPage from '../pages/CancelPaymentPage/CancelPaymentPage'
+import { Route, Routes } from 'react-router-dom'
 
 const AppRoutes = () => {
     return (

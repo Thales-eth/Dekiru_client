@@ -3,6 +3,16 @@ import InitAxios from "./init.service";
 class PostService extends InitAxios {
     constructor() {
         super("post")
+
+        this.api.interceptors.request.use(config => {
+            const authToken = localStorage.getItem("authToken")
+
+            if (authToken) {
+                config.headers = { Authorization: `Bearer ${authToken}` }
+            }
+
+            return config
+        })
     }
 
     getAllPosts(skipValue) {

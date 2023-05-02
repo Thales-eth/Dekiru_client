@@ -1,6 +1,6 @@
+import styles from './Interests.module.css'
 import Interest from '../Interest/Interest'
 import SectionHeader from '../SectionHeader/SectionHeader'
-import styles from './Interests.module.css'
 
 const Interests = ({ interests }) => {
     return (

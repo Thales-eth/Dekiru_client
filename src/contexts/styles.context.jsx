@@ -1,17 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { createContext } from 'react'
-import { AuthContext } from './auth.context'
 import { useNavigate } from 'react-router-dom'
 
 const StylesContext = createContext()
 
 const StylesContextWrapper = (props) => {
     const [fadeOut, setFadeOut] = useState(false)
-    const { handleNavigation } = useContext(AuthContext)
     const navigate = useNavigate()
 
+    function handleNavigation() {
+        window.scrollTo(0, 0)
+    }
+
     function triggerFadeOut(link) {
-        if (link.startsWith("https://checkout.stripe.com")) {
+        if (typeof link === "string" && link.startsWith("https://checkout.stripe.com")) {
             window.open(link, "_blank");
             return
         }
@@ -24,8 +26,14 @@ const StylesContextWrapper = (props) => {
         }, 200)
     }
 
+    function triggerNavigation(link, e) {
+        e.preventDefault()
+        handleNavigation()
+        navigate(link)
+    }
+
     return (
-        <StylesContext.Provider value={{ triggerFadeOut, fadeOut }}>{props.children}</StylesContext.Provider>
+        <StylesContext.Provider value={{ fadeOut, handleNavigation, triggerFadeOut, triggerNavigation }}>{props.children}</StylesContext.Provider>
     )
 }
 

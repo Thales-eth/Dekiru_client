@@ -7,15 +7,15 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 
-const ClassProfileCard = ({ singleClass, setAllClasses, photoWidth, photoHeight }) => {
+const ClassProfileCard = ({ singleClass, setProfileUser, photoWidth, photoHeight }) => {
 
     const { user } = useContext(AuthContext)
     const { triggerFadeOut } = useContext(StylesContext)
 
     async function deleteClass(singleClassId) {
         try {
-            const updatedUser = await classService.deleteClass(singleClassId, user._id).then(({ data }) => data)
-            setAllClasses(updatedUser)
+            const updatedUser = await classService.leaveClass(singleClassId, user._id).then(({ data }) => data)
+            setProfileUser(updatedUser)
         }
         catch (error) {
             console.log(error)
@@ -31,8 +31,8 @@ const ClassProfileCard = ({ singleClass, setAllClasses, photoWidth, photoHeight 
     }
 
     async function leaveClass() {
-        const userClasses = await classService.leaveClass(singleClass._id, user._id).then(({ data }) => data)
-        setAllClasses(userClasses)
+        const updatedUser = await classService.leaveClass(singleClass._id, user._id).then(({ data }) => data)
+        setProfileUser(updatedUser)
     }
 
     return (
