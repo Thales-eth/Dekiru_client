@@ -23,17 +23,23 @@ const ConversationsListPage = () => {
         }
 
         if (socket) {
-            socket.on('successfulMsgCreation', (createdMsg) => {
-                setCurrentConversation({ ...currentConversation, messages: [...currentConversation.messages, createdMsg] })
-                setMsg({ sender: user._id, message: "" })
-            });
+            socket.on('successfulMsgCreation', handleSuccessfulMsgCreation);
 
             socket.on('disconnect', (reason) => {
                 console.log('Socket disconnected:', reason);
             });
         }
 
-    }, [socket, currentConversation, user._id])
+        return () => {
+            socket?.off('successfulMsgCreation', handleSuccessfulMsgCreation);
+        }
+
+    }, [socket, currentConversation])
+
+    const handleSuccessfulMsgCreation = (createdMsg) => {
+        setCurrentConversation({ ...currentConversation, messages: [...currentConversation.messages, createdMsg] })
+        setMsg({ sender: user._id, message: "" })
+    };
 
     useEffect(() => {
         loadConversations()
@@ -42,8 +48,13 @@ const ConversationsListPage = () => {
     async function handleConversationChange(conversation) {
         const populatedConversation = await messageService.getConversationMessages(conversation._id).then(({ data }) => data)
         setCurrentConversation(populatedConversation)
-
-        socket.emit('joinConversation', { conversation_id: conversation._id, user_id: user._id })
+        if (currentConversation._id && currentConversation._id !== conversation._id) {
+            const prevConversationId = currentConversation._id
+            socket.emit('leaveConversation', { conversation_id: prevConversationId, user_id: user._id })
+        }
+        if (currentConversation._id !== conversation._id) {
+            socket.emit('joinConversation', { conversation_id: conversation._id, user_id: user._id })
+        }
         loadConversations()
     }
 

@@ -95,7 +95,7 @@ const Conversation = ({ setMsg, msg, handleFileInput, currentConversation, handl
                                             </p>
                                 }
                                 <div className={styles.avatarBlock}>
-                                    <img className={styles.avatar} src={sender.avatar} alt="" />
+                                    <Link to={`/users/${sender._id}`}><img className={styles.avatar} src={sender.avatar} alt="" /></Link>
                                     <span>{getHumanHour(message.createdAt)}</span>
                                 </div>
                             </div>
