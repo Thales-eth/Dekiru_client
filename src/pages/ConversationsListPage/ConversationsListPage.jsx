@@ -18,7 +18,7 @@ const ConversationsListPage = () => {
 
     useEffect(() => {
         if (!socket) {
-            const newSocket = io.connect(`https://dekiru.fly.dev`, { transports: ['websocket'] });
+            const newSocket = io.connect(`${process.env.REACT_APP_SOCKET_URL}`, { transports: ['websocket'] });
             setSocket(newSocket)
         }
 

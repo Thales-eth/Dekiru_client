@@ -1,5 +1,7 @@
 # Dekiru: A Language Exchange Application (Japanese/Spanish) built using the MERN Stack
 
+Dekiru is a language exchange application built using the MERN stack that enables users to communicate with each other via sockets and share photos. In addition, the application provides a platform for language learners to find teachers and make payments using Stripe. Dekiru's matching tool connects users with similar interests, and the proximity-based search feature helps users find language speakers near them. 
+
 # Deployed Application
 
 The deployed application can be found at the following link: "https://dekiru.vercel.app/". The application has been developed aesthetically for Desktop.
@@ -10,6 +12,15 @@ To install all the dependencies used in the project, simply run the command:
 ```
 npm install
 ```
+
+# Environment Variables
+
+You will need to create a .env file if you want to run this project locally. In order to do so you will also need two variables:
+
+- REACT_APP_API_URL
+- REACT_APP_GOOGLE_MAPS_API_KEY
+
+The deployed client of this proyect does not contain any Google Maps api keys for obvious reasons. If you don't use such API keys, you will only be able to see the development version of maps. 
 
 # Application Routes:
 

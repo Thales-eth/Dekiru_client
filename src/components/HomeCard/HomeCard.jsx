@@ -13,7 +13,7 @@ const HomeCard = ({ headerText, paragraph, src, link }) => {
                 <h2>{headerText}</h2>
                 <p>{paragraph}</p>
                 <div className={styles.logo}>
-                    <BsArrowRight color={"black"} size={24} />
+                    <BsArrowRight className={styles.arrowLogo} color={"black"} size={24} />
                 </div>
             </div>
 

@@ -4,6 +4,7 @@
     align-items: center;
     background-color: black;
     height: 400px;
+    flex-shrink: 0;
 }
 
 .footerLink {
@@ -20,10 +21,48 @@
 
 .footer .logo {
     cursor: pointer;
-    margin-right: 50px;
+    margin: 0 25px;
     transition: 0.3s;
 }
 
 .footer .logo:hover {
     transform: scale(1.2);
+}
+
+@media (max-width: 980px) {
+    .footer {
+        height: 250px;
+    }
+
+    .footerLink {
+        font-size: 30px;
+    }
+
+    .logo {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/* @media (max-width: 780px) {
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+} */
+
+@media (max-width: 576px) {
+    .footer {
+        height: 150px;
+    }
+
+    .footerLink {
+        font-size: 16px;
+    }
+
+    .logo {
+        height: 24px;
+        width: 24px;
+    }
 }

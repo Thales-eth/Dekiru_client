@@ -52,3 +52,55 @@
 .signupLink:hover {
     transform: scale(1.1);
 }
+
+@media (max-width: 1024px) {
+    .loginForm input {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .loginForm button {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .loginForm input {
+        font-size: 1.8em;
+        height: 70px;
+        margin-top: 30px;
+    }
+
+    .loginForm button {
+        font-size: 1.8em;
+        height: 70px;
+        margin: 30px auto;
+        width: 80%;
+    }
+
+    .pwdLogo {
+        bottom: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .loginForm input {
+        font-size: 1.6em;
+        height: 60px;
+        margin-top: 20px;
+        border-radius: 30px;
+    }
+
+    .loginForm button {
+        font-size: 1.6em;
+        height: 60px;
+        margin: 20px auto;
+        width: 90%;
+        border-radius: 30px;
+    }
+
+    .signupLink {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}

@@ -13,7 +13,7 @@ const NavBar = ({ isChat }) => {
     return (
         <header>
             <nav className={styles.navBar} style={isChat ? { "backgroundColor": "#F5F7FB" } : { "backgroundColor": "white" }}>
-                <h1 className={styles.logo}><Link to={"/"}>Dekiru</Link></h1>
+                <Link to={"/"}><h1 className={styles.logo}>Dekiru</h1></Link>
 
                 <ul className={`${styles.flexContainer} ${styles.navList}`}>
                     <li><Link className={location.pathname === "/" ? styles.active : ""} to={"/"}>Home</Link></li>
