@@ -1,17 +1,17 @@
-# Dekiru: Una aplicación de intercambio linguístico (Japonés/Español) creada usando el Stack MERN
+# Dekiru: A Language Exchange Application (Japanese/Spanish) built using the MERN Stack
 
-# Aplicación desplegada
+# Deployed Application
 
-La aplicación desplegada se puede encontrar en el siguiente enlace: "####". A nivel estético, la aplicación ha sido desarrollada para Desktop. 
+The deployed application can be found at the following link: "https://dekiru.vercel.app/". The application has been developed aesthetically for Desktop.
 
-Si quiere correrse esta aplicación en local, será necesario crear un archivo .env en la raíz del proyecto y adjuntar la variable de entorno "REACT_APP_API_URL". Por defecto, nos servimos del valor "http://localhost:5005". El puerto 5005 es el elegido en este caso para levantar nuestro servicio (API). Este archivo .env se excluye de subida en nuestro archivo .gitignore.
+If you want to run this application locally, you will need to create a .env file in the root of the project and attach the environment variable "REACT_APP_API_URL". By default, we use the value "http://localhost:5005". The port 5005 is chosen in this case to start our service (API). This .env file is excluded from uploading to our .gitignore file.
 
-Para instalar todas las dependencias utilizadas en el proyecto, simplemente se ha de ejecutar el comando:
+To install all the dependencies used in the project, simply run the command:
 ```
 npm install
 ```
 
-# Rutas de la aplicación:
+# Application Routes:
 
 | URL path                    | Description           | Protected | 
 | :--------------------------:|:---------------------:|:---------------------:|
