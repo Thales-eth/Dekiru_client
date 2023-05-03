@@ -15,7 +15,7 @@ npm install
 
 | URL path                    | Description           | Protected | 
 | :--------------------------:|:---------------------:|:---------------------:|
-| /                           |  Home page            | ✅ |
+| /                           |  Home page            | ❌ |
 | /login                      |  Login page           | ❌ |
 | /signup                     |  Signup page          | ❌ |
 | /contact                    |  Contact              | ❌ |
