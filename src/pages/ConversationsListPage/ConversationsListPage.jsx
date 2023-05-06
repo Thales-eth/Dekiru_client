@@ -16,9 +16,11 @@ const ConversationsListPage = () => {
     const [msg, setMsg] = useState({ sender: user._id, message: "" })
     const [socket, setSocket] = useState(null);
 
+    console.log("EL SOCKETITO ===>", process.env.REACT_APP_SOCKET_URL)
+
     useEffect(() => {
         if (!socket) {
-            const newSocket = io.connect(`https://dekiru.fly.dev`, { transports: ['websocket'] });
+            const newSocket = io.connect(process.env.REACT_APP_SOCKET_URL, { transports: ['websocket'] });
             setSocket(newSocket)
         }
 
